@@ -87,8 +87,8 @@ class GAXOR:
 	def __init__(self,cipher,sz):
 		self.population_size = 15000
 		self.max_generations = 10000
-		self.crossover_rate = 0.15
-		self.mutation_rate = 0.18
+		self.crossover_rate = 0.25
+		self.mutation_rate = 0.15
 		self.ciphertext = cipher
 		self.solved = False
 		self.fitness = {}
@@ -209,15 +209,15 @@ class GAXOR:
 
 # TODO: 
 # 
-# [1] Need to improve the corssover
+# [1] Need to improve the crossover/mutation
 #
 # [2] Find set of numbers that works for all key sizes
 #
-# [3] 
+# [3] Clean up the code, it's gettin spaghetti'fied
 
 def main():
 	MSG = b'The quieter you become the more you are able to hear'
-	KEY = b'L33T'
+	KEY = b'secret'
 	ex = utils.xor(MSG,KEY)
 	gaxor = GAXOR(ex, len(KEY))
 	gaxor.evolution()
